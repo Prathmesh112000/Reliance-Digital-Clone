@@ -2,11 +2,14 @@ const mongoose=require("mongoose")
 const express=require("express")
 const cartModel=require("./models/cartmodel")
 const productModel=require("./models/productmodel")
+const cors=require("cors")
 const app=express()
 
 const port=8080
 const dburl="mongodb+srv://prathmeshnerle:pgglLAZLiT6V9Sx4@cluster0.hneyh.mongodb.net/?retryWrites=true&w=majority"
-const dburl2="mongodb+srv://prathmeshnerle:<password>@cluster0.hneyh.mongodb.net/?retryWrites=true&w=majority"
+app.use(express.urlencoded({extended:true}))
+app.use(express.json())
+app.use(cors())
 const connectionparams={
     useNewUrlParser:true,
     useUnifiedTopology:true
@@ -36,10 +39,14 @@ mongoose.connect(dburl,connectionparams).then(()=>{
         
 //     })
 
-app.get("/a",async(req,res)=>{
-    const a=await productModel.find()
-    console.log(a)
-    res.end("got data")
+app.get("/products",async(req,res)=>{
+    const {category}=req.body
+ 
+   const data=await productModel.find({category:category})
+
+//    console.log(data)
+   res.end(JSON.stringify(data))
+   
 
 })
 
