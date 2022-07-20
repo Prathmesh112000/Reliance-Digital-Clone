@@ -1,7 +1,7 @@
-import {legacy_createStore as createStore, combineReducer, applyMiddleware, compose } from "redux";
+import {legacy_createStore as createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 
-const rootReducer = combineReducer({
+const rootReducer = combineReducers({
 
 });
 
@@ -17,8 +17,7 @@ const enhancer = composeEnhancers(
   // other store enhancers if any
 );
 
-const initialState = {};
 
-const store = createStore(rootReducer, initialState,enhancer);
+const store = createStore(rootReducer,enhancer);
 
 export default store;
