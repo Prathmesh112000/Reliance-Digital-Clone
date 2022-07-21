@@ -1,206 +1,195 @@
-.navbar{
-    display:flex ;
-    border:1px solid red;
-    width:100%;
-    background-color: #e32728;
-    position: fixed;
-    height: 103px;
-
-    
+.navbar {
+  display: flex;
+  border: 1px solid red;
+  width: 100%;
+  background-color: #e32728;
+  position: fixed;
+  height: 103px;
+  
 }
-.logo-div{
-    /* border:1px solid blue; */
-    margin:2% 2% 0px 5%;
-    height: fit-content;
-   
+.logo-div {
+  /* border:1px solid blue; */
+  margin: 2% 2% 0px 5%;
+  height: fit-content;
 }
-.searchdiv{
-    /* border:1px solid blue; */
-    width:33%;
-    border-radius: 5px;
-    height:fit-content;
-    margin:3% 0% 0% 7%
-   
+.searchdiv {
+  /* border:1px solid blue; */
+  width: 33%;
+  border-radius: 5px;
+  height: fit-content;
+  margin: 3% 0% 0% 7%;
 }
-#searchinput{
-    font-size: 14px;
-    width: 100%;
-    height: 34px;
-    border: 0.2px;
-    padding: 7px;
-    border-radius: 9px;
-    
+#searchinput {
+  font-size: 14px;
+  width: 100%;
+  height: 34px;
+  border: 0.2px;
+  padding: 7px;
+  border-radius: 9px;
 }
-.quries{
-    /* border:1px solid blue; */
-    margin:0% 0% 0% 10%;
-    /* line-height: 45%; */
-    text-align: right;
-    padding-right:1%;
-    width:27%
+.quries {
+  /* border:1px solid blue; */
+  margin: 0% 0% 0% 10%;
+  /* line-height: 45%; */
+  text-align: right;
+  padding-right: 1%;
+  width: 27%;
 }
-.contact{
-    /* border:1px solid blue; */
-    /* margin-top: 3%; */
-    font-size: 17px;
-    margin: -4% 0% 15% 0%;
-    color: rgb(255, 255, 255);
-    /* text-align: center; */
-
+.contact {
+  /* border:1px solid blue; */
+  /* margin-top: 3%; */
+  font-size: 17px;
+  margin: -4% 0% 15% 0%;
+  color: rgb(255, 255, 255);
+  /* text-align: center; */
 }
-.location{
-    /* border:1px solid blue; */
-    display: flex;
-    justify-content: space-between;
-    /* font-size: large; */
-    padding-left: 9px;
-    color: rgb(255, 255, 255);
-    letter-spacing: 1.7px;
-   font-size: 14px;
-   margin-top:-10px
-   
-
+.location {
+  /* border:1px solid blue; */
+  display: flex;
+  justify-content: space-between;
+  /* font-size: large; */
+  padding-left: 9px;
+  color: rgb(255, 255, 255);
+  letter-spacing: 1.7px;
+  font-size: 14px;
+  margin-top: -10px;
 }
-.drop-down{
-    /* font-family: 'Open Sans', sans-sarif; */
-    color: rgb(255, 255, 255);
-    /* border:1px solid red; */
-    position: fixed;
-    margin-top: 100px;
-    width: 100%;
+.drop-down {
+  /* font-family: 'Open Sans', sans-sarif; */
+  color: rgb(255, 255, 255);
+  /* border:1px solid red; */
+  position: fixed;
+  /* margin-top: 100px; */
+  width: 100%;
 }
 
-.nav-bar{
-    width:100%;
-    background: #1f4985;
-    padding:0px 0px 0px 0px;
-    height: 70%;
-    box-sizing: border-box;
-    /* border-bottom: 1px solid blue; */
-    /* border:1px solid green; */
+.nav-bar {
+  width: 100%;
+  background: #1f4985;
+  padding: 0px 0px 0px 0px;
+  height: 70%;
+  box-sizing: border-box;
+  /* border-bottom: 1px solid blue; */
+  /* border:1px solid green; */
+}
+ul {
+  /* border:1px solid rgb(202, 238, 0); */
+  display: flex;
+  /* justify-content: space-around; */
+  width: 100%;
+  padding: 1px;
+}
+li {
+  margin-top: 1%;
+  margin-right: 10%;
+  font-size: small;
+  /* border:1px solid red; */
+  width: 88%;
+  margin: auto;
+  padding: 0.3%;
+}
+.nav-bar ul {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  list-style: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1.3px;
+  position: relative;
+}
+.nav-bar ul li {
+  width: 100%;
+  float: left;
+  text-align: center;
 
+  color: #ffffff;
+  /* margin-right: 10px; */
+  cursor: pointer;
+  transition: all 0.4s ease;
 }
-ul{
-    /* border:1px solid rgb(202, 238, 0); */
-    display: flex;
-    /* justify-content: space-around; */
-    width:100%;
-    padding: 1px;
-    
-}
-li{
-    margin-top: 1%;
-    margin-right: 10%;
-    font-size: small;
-    /* border:1px solid red; */
-    width: 88%;
-    margin:auto;
-    padding: 0.3%;
-}
-.nav-bar ul{
-    width:100%;
-    height:100%;
-    margin:0 auto;
-    list-style: none;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 1.3px;
-    position: relative;
-}
-.nav-bar ul li{
-    width:100%;
-    float:left;
-    text-align: center;
-    
-    color: #ffffff;
-    /* margin-right: 10px; */
-    cursor: pointer;
-    transition: all 0.4s ease;
-}
-.nav-bar ul li:last-child{
- margin-right: 0;
+.nav-bar ul li:last-child {
+  margin-right: 0;
 }
 
-.nav-bar ul li:hover{
-    background-color: rgb(255, 0, 0);
-    /* width: 100%; */
+.nav-bar ul li:hover {
+  background-color: rgb(255, 0, 0);
+  /* width: 100%; */
 }
-.nav-bar ul li :hover .mega-menu{
-    text-decoration: underline;
+.nav-bar ul li :hover .mega-menu {
+  text-decoration: underline;
 }
-.nav-bar ul li .mega-menu p:hover{
-    text-decoration: underline;
-}
-
-
-.mega-menu{
-    position: absolute;
-    /* top:65px; */
-    left:0;
-    width:100%;
-    height:auto;
-    background: #2743e3;
-    transition: all 0.4s ease;
-    padding: 10px;
-    box-sizing: border-box;
-    visibility: hidden;
-    opacity: 0;
-}
-.inner-mega-menu{
-    width:fit-content;
-    float:left;
-    margin-right: 1%;
-    /* border: 1px solid red; */
-}
-.inner-mega-menu:last-child{
-    margin-right: 0%;
-}
-.inner-mega-menu p{
-    /* padding: 10px 0; */
-    transition: all 0.4s ease;
-}
-.nav-bar ul li:hover .mega-menu{
-    visibility: visible;
-    opacity: 1;
-}
-.left-mega-position{
-    text-align: left;
-    font-size: small;
-    text-transform: none;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-.left-mega-position > h2{
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-#img{
-    background-image: url("https://www.reliancedigital.in/medias/Mobiles-Tablet-Menu-Banners-04-01-2021-01.jpg?context=bWFzdGVyfGltYWdlc3wxMTkxOTN8aW1hZ2UvanBlZ3xpbWFnZXMvaGM0L2gxNy85NTIwNDc1MzczNTk4LmpwZ3xjMmU0NzlmMWZjODQyMmFmNDZhMjA2NTUwZTVhNTI4ODcxMWVkZjM5YzgyNDY3YTE3ODU1OWM0NGQyY2E4MmVi");
-}
-#img2{
-    background-image: url("https://www.reliancedigital.in/medias/Televisions-Menu-Banners-09-09-2020-01.jpg?context=bWFzdGVyfGltYWdlc3w5NzMzMnxpbWFnZS9qcGVnfGltYWdlcy9oYTQvaGE2Lzk2MzM2NTIwODA2NzAuanBnfDYxY2RhYzZmZDYxODk4NTM0MzZiNTRhOGY5ZTQ0NzQ2OGE4ZmFkMDc5NGJlMTg1YmY2YzM4ZWMzMWE3M2E3MDM");
-}
-#img3{
-    background-image: url("https://www.reliancedigital.in/medias/Home-Appliances-Menu-Banners-09-09-2020-01.jpg?context=bWFzdGVyfGltYWdlc3w0NTE5MHxpbWFnZS9qcGVnfGltYWdlcy9oY2EvaGQxLzk2MzM2NTIwMTUxMzQuanBnfGMyNWUxOThjNWExMWE5NDQyYTJmYWY1ZmYxMjYyODY3OWQ1MTg5MDc1ZGQwMjQ0YjBlNTJhNzUzMjYyYTZmZjk")
-}
-#img4{
-    background-image: url("https://www.reliancedigital.in/medias/Computers-Menu-Banners-04-01-2021.jpg?context=bWFzdGVyfGltYWdlc3wxMzI5NDF8aW1hZ2UvanBlZ3xpbWFnZXMvaDQzL2g1Ny85NDU1NTQ0Nzk1MTY2LmpwZ3w3YThhZWU1NGYwZjY4ODA2Yjg1N2MyNzk4MTNlN2RkNGUxMjE1NjI5ZGQyMzAzOTk2NTMxZGIxOWMzOGM1NTJl");
+.nav-bar ul li .mega-menu p:hover {
+  text-decoration: underline;
 }
 
-#img5{
-    background-image: url("https://www.reliancedigital.in/medias/Cameras-Menu-Banners-09-09-2020-01.jpg?context=bWFzdGVyfGltYWdlc3w3MTAxMHxpbWFnZS9qcGVnfGltYWdlcy9oZWYvaDYxLzk2MzMzMjg5MjI2NTQuanBnfDYwMDI1N2E2YTJmNzVkOGYyNjZkMDNhM2UwZTAxNzY1ODRmYWVlYjkyMWE0OTM5MjcyNzRmMjQzMmQ3ZDg1MzY");
+.mega-menu {
+  position: absolute;
+  /* top:65px; */
+  left: 0;
+  width: 100%;
+  height: auto;
+  background: #2743e3;
+  transition: all 0.4s ease;
+  padding: 10px;
+  box-sizing: border-box;
+  visibility: hidden;
+  opacity: 0;
 }
-#img6{
-    background-image: url("https://www.reliancedigital.in/medias/Kitchen-Appliances-Menu-Banners-09-09-2020-01.jpg?context=bWFzdGVyfGltYWdlc3w1Mjg0OXxpbWFnZS9qcGVnfGltYWdlcy9oZWEvaDJmLzk2MzMzMjg5ODgxOTAuanBnfDFkYmIwZTliYmQ4NmM5MWU0ZDhmNzAwNjZkOWI1ODQ2YjQ3NjdkMTM4M2ZiOWNhNTIzM2NmZDFiNTU4ZGY4Y2U");
+.inner-mega-menu {
+  width: fit-content;
+  float: left;
+  margin-right: 1%;
+  /* border: 1px solid red; */
 }
-#img7{
-    background-image: url("https://www.reliancedigital.in/medias/Personal-Care-Menu-Banners-04-01-2021.jpg?context=bWFzdGVyfGltYWdlc3w2MTMxNnxpbWFnZS9qcGVnfGltYWdlcy9oZDUvaGI4Lzk0NTU1NDQ5OTE3NzQuanBnfDVlYjM3ZmQ0OWRhMGI0NmU2YjVmZDk1ZGE4Njc0MGJmNmQyMzEyMjNlMjI1MTJhMmU5MTVjNGFiMmU3N2M2YTE");
-        
+.inner-mega-menu:last-child {
+  margin-right: 0%;
+}
+.inner-mega-menu p {
+  /* padding: 10px 0; */
+  transition: all 0.4s ease;
+}
+.nav-bar ul li:hover .mega-menu {
+  visibility: visible;
+  opacity: 1;
+}
+.left-mega-position {
+  text-align: left;
+  font-size: small;
+  text-transform: none;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.left-mega-position > h2 {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+#img {
+  background-image: url("https://www.reliancedigital.in/medias/Mobiles-Tablet-Menu-Banners-04-01-2021-01.jpg?context=bWFzdGVyfGltYWdlc3wxMTkxOTN8aW1hZ2UvanBlZ3xpbWFnZXMvaGM0L2gxNy85NTIwNDc1MzczNTk4LmpwZ3xjMmU0NzlmMWZjODQyMmFmNDZhMjA2NTUwZTVhNTI4ODcxMWVkZjM5YzgyNDY3YTE3ODU1OWM0NGQyY2E4MmVi");
+}
+#img2 {
+  background-image: url("https://www.reliancedigital.in/medias/Televisions-Menu-Banners-09-09-2020-01.jpg?context=bWFzdGVyfGltYWdlc3w5NzMzMnxpbWFnZS9qcGVnfGltYWdlcy9oYTQvaGE2Lzk2MzM2NTIwODA2NzAuanBnfDYxY2RhYzZmZDYxODk4NTM0MzZiNTRhOGY5ZTQ0NzQ2OGE4ZmFkMDc5NGJlMTg1YmY2YzM4ZWMzMWE3M2E3MDM");
+}
+#img3 {
+  background-image: url("https://www.reliancedigital.in/medias/Home-Appliances-Menu-Banners-09-09-2020-01.jpg?context=bWFzdGVyfGltYWdlc3w0NTE5MHxpbWFnZS9qcGVnfGltYWdlcy9oY2EvaGQxLzk2MzM2NTIwMTUxMzQuanBnfGMyNWUxOThjNWExMWE5NDQyYTJmYWY1ZmYxMjYyODY3OWQ1MTg5MDc1ZGQwMjQ0YjBlNTJhNzUzMjYyYTZmZjk");
+}
+#img4 {
+  background-image: url("https://www.reliancedigital.in/medias/Computers-Menu-Banners-04-01-2021.jpg?context=bWFzdGVyfGltYWdlc3wxMzI5NDF8aW1hZ2UvanBlZ3xpbWFnZXMvaDQzL2g1Ny85NDU1NTQ0Nzk1MTY2LmpwZ3w3YThhZWU1NGYwZjY4ODA2Yjg1N2MyNzk4MTNlN2RkNGUxMjE1NjI5ZGQyMzAzOTk2NTMxZGIxOWMzOGM1NTJl");
 }
 
-
-#img8{
-    background-image: url("https://www.reliancedigital.in/medias/Accessories-Menu-Banners-04-01-2021-01.jpg?context=bWFzdGVyfGltYWdlc3wxMDEzMjl8aW1hZ2UvanBlZ3xpbWFnZXMvaGJjL2g5OS85NjM4OTI4NDE2Nzk4LmpwZ3wwZjliNTg0MWNlNTI3MWY1M2FiZWQxOWJmYjAwNjgyNzdhYjMxNTk3N2NhNzM4ZDIyMjFhM2M0ODM1M2Y0M2Ux");
+#img5 {
+  background-image: url("https://www.reliancedigital.in/medias/Cameras-Menu-Banners-09-09-2020-01.jpg?context=bWFzdGVyfGltYWdlc3w3MTAxMHxpbWFnZS9qcGVnfGltYWdlcy9oZWYvaDYxLzk2MzMzMjg5MjI2NTQuanBnfDYwMDI1N2E2YTJmNzVkOGYyNjZkMDNhM2UwZTAxNzY1ODRmYWVlYjkyMWE0OTM5MjcyNzRmMjQzMmQ3ZDg1MzY");
 }
-.linknavbar{
-    text-decoration: none;
-    color: white;
+#img6 {
+  background-image: url("https://www.reliancedigital.in/medias/Kitchen-Appliances-Menu-Banners-09-09-2020-01.jpg?context=bWFzdGVyfGltYWdlc3w1Mjg0OXxpbWFnZS9qcGVnfGltYWdlcy9oZWEvaDJmLzk2MzMzMjg5ODgxOTAuanBnfDFkYmIwZTliYmQ4NmM5MWU0ZDhmNzAwNjZkOWI1ODQ2YjQ3NjdkMTM4M2ZiOWNhNTIzM2NmZDFiNTU4ZGY4Y2U");
+}
+#img7 {
+  background-image: url("https://www.reliancedigital.in/medias/Personal-Care-Menu-Banners-04-01-2021.jpg?context=bWFzdGVyfGltYWdlc3w2MTMxNnxpbWFnZS9qcGVnfGltYWdlcy9oZDUvaGI4Lzk0NTU1NDQ5OTE3NzQuanBnfDVlYjM3ZmQ0OWRhMGI0NmU2YjVmZDk1ZGE4Njc0MGJmNmQyMzEyMjNlMjI1MTJhMmU5MTVjNGFiMmU3N2M2YTE");
+}
+
+#img8 {
+  background-image: url("https://www.reliancedigital.in/medias/Accessories-Menu-Banners-04-01-2021-01.jpg?context=bWFzdGVyfGltYWdlc3wxMDEzMjl8aW1hZ2UvanBlZ3xpbWFnZXMvaGJjL2g5OS85NjM4OTI4NDE2Nzk4LmpwZ3wwZjliNTg0MWNlNTI3MWY1M2FiZWQxOWJmYjAwNjgyNzdhYjMxNTk3N2NhNzM4ZDIyMjFhM2M0ODM1M2Y0M2Ux");
+}
+.linknavbar {
+  text-decoration: none;
+  color: white;
 }
