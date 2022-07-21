@@ -1,3 +1,5 @@
+import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import styled from "styled-components";
 // import { useNavigate } from "react-router-dom";
@@ -32,7 +34,10 @@ const StyledH2 = styled.p`
 `;
 const StyledH3 = styled.h3`
   font-size: 15px;
-  color: #1f4985;
+  // color: #1f4985;
+  color: #3a5f94;
+  // 1f4985
+
   text-align: left;
 `;
 const Styledp = styled.p`
@@ -52,6 +57,15 @@ const StyledDiv = styled.div`
   display: flex;
   gap: 10px;
 `;
+const Styleddown = styled.div`
+  display: "flex";
+  border: "1px solid black";
+  gap: "5px";
+  color: "#3a5f94";
+  &:hover {
+    color: #1f4985;
+  }
+`;
 
 export const ProdCategory = ({ item }) => {
   // const navigate = useNavigate();
@@ -65,6 +79,23 @@ export const ProdCategory = ({ item }) => {
           <Styledp>{item.mrp}</Styledp>
           <StyledP>{item.save}</StyledP>
         </StyledDiv>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <div style={{ display: "flex", border: "1px solid", gap: "5px" }}>
+            <input type="checkbox" name="" id="" />
+            <p>Compare</p>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              border: "1px solid black",
+              gap: "5px",
+              color: "#3a5f94",
+            }}
+          >
+            <FontAwesomeIcon style={{ marginTop: "16px" }} icon={faHeart} />
+            <p>Wishlist</p>
+          </div>
+        </div>
       </CategoryDiv>
     </div>
   );
