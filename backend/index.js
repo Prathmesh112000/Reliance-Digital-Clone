@@ -10,7 +10,7 @@ const jwt=require("jsonwebtoken")
 const cors=require("cors")
 const { createClient } = require('redis')
 
-const client = createClient();
+// const client = createClient();
 
 const app=express()
 
@@ -83,14 +83,12 @@ app.post("/login",async(req,res)=>{
         if(data.password==hash){
             const token=jwt.sign({"email":email},"SECRETKEY",{expiresIn:"90000ms"})
             console.log(token)
-            await client.connect();
-
-            await client.set('token', token);
+           
             // client.set("token",token,"ex",6000000)
             // const d=client.get("token")
-            const value = await client.get('toke');
-            console.log(value)
-            res.end("data send success")
+          
+            
+            res.end("log in success")
         }
         else{
             res.end("Invalid password")
@@ -100,7 +98,28 @@ app.post("/login",async(req,res)=>{
    }
 })
 
+app.post("/checkout",async(req,res)=>{
+  
+    try {
+        const {token}=req.headers
+        const {productslist}=req.body
+        const decode=jwt.verify(token,"SECRETKEY")
+        if(decode){
+           await userModel.updateOne({"email":decode.email},{ $push: { orders: { $each: [ ...productslist ] } } })
+           res.end("order added successfully")
+        }
+        else{
+            res.end("error occred")
+        }
 
+       
+        
+
+    } catch (error) {
+        res.end("please login first")
+    }
+
+})
 
 
 
