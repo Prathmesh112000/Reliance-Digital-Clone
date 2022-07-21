@@ -27,8 +27,8 @@ const IndividualProduct = () => {
           <span id="RIL_BreadCrumb_1">
             LED Televisions <span>&nbsp; &gt; &nbsp;</span>
           </span>
-          <span id="RIL_BreadCrumb_2">
-            Acer A314-35 Aspire 3 Laptop (Intel Celeron N4500/4GB/256GB SSD/Intel UHD Graphics/Windows 11/MSO/HD), 35.56 cm (14 inch)<span>&nbsp; &gt; &nbsp;</span>
+          <span id="RIL_BreadCrumb_2"> Acer A314-35 Aspire 3 Laptop (Intel Celeron N4500/4GB/256GB SSD/Intel UHD Graphics/Windows 11/MSO/HD), 35.56 cm (14 inch)
+           <span>&nbsp; &gt; &nbsp;</span>
           </span>
           <span id="RIL_BreadCrumb_3">
             {/* {product.name} */}
