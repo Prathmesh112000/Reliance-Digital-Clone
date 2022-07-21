@@ -53,20 +53,7 @@ app.get("/products",async(req,res)=>{
 
 
 
-// app.get("/insert",(req,res)=>{
-//     const cart=new cartModel({
-//         userid:"abc12345hjj",
-//         products:["abcd","defg"],
-//         price:2100
-//     })
-//     cart.save((err,data)=>{
-//         if(err){
-//             console.log(err)
-//         }
-//     })
-//     res.end("data send")
-    
-// })
+
 
 
 
