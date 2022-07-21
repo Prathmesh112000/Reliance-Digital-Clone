@@ -5,7 +5,9 @@
   background-color: #e32728;
   position: fixed;
   height: 103px;
-  
+  /* z-index: 100;
+  position: -webkit-sticky;
+  position: sticky; */
 }
 .logo-div {
   /* border:1px solid blue; */
@@ -59,7 +61,7 @@
   color: rgb(255, 255, 255);
   /* border:1px solid red; */
   position: fixed;
-  /* margin-top: 100px; */
+  margin-top: 100px;
   width: 100%;
 }
 
