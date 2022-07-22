@@ -51,10 +51,13 @@ mongoose.connect(dburl,connectionparams).then(()=>{
 app.get("/products",async(req,res)=>{
     const {category}=req.body
     const data=await productModel.find({category:category})
-   res.end(JSON.stringify(data))
+   res.json({
+    data
+   })
 })
 
 app.post("/signup",async(req,res)=>{
+  try {
     const {name,email,password,mobile}=req.body
     try {
         const hash=crypto.pbkdf2Sync(password,"SECRETKEY",60,64,"sha256").toString("hex")
@@ -66,11 +69,20 @@ app.post("/signup",async(req,res)=>{
         "order":[]
       })
       await user.save()
-      res.end("user add success fully")
+      res.json({
+        message:"user add success fully"
+      })
       }
       catch(err) {
-        res.end("user exist")
+        res.json({
+            message:"user exist"
+        })
       }
+  } catch (message) {
+    res.json({
+        message:"please enter all the credentials"
+    })
+  }
 })
 
 app.post("/login",async(req,res)=>{
@@ -86,37 +98,49 @@ app.post("/login",async(req,res)=>{
            
             // client.set("token",token,"ex",6000000)
             // const d=client.get("token")
-          
+          const payload={
+            id:data.id,
+            name:data.name,
+            email:data.email,
+            token:token
+          }
             
-            res.end("log in success")
+            res.json({data:payload})
         }
         else{
-            res.end("Invalid password")
+            res.json({
+                message:"Invalid password"
+            })
         }
-   } catch (error) {
-        res.end("invalid credentials")
+   } catch (message) {
+        res.json({
+            message:"invalid credentials"
+        })
    }
 })
 
-app.post("/checkout",async(req,res)=>{
+app.post("/cart",async(req,res)=>{
   
     try {
         const {token}=req.headers
-        const {productslist}=req.body
+        const {products}=req.body
         const decode=jwt.verify(token,"SECRETKEY")
         if(decode){
-           await userModel.updateOne({"email":decode.email},{ $push: { orders: { $each: [ ...productslist ] } } })
-           res.end("order added successfully")
+           await userModel.updateOne({"email":decode.email},{ $push: { orders: products } })
+           res.json({
+            message:"order added successfully"
+           })
         }
         else{
-            res.end("error occred")
+            res.json({
+                message:"message occred"
+            })
         }
 
-       
-        
-
-    } catch (error) {
-        res.end("please login first")
+    } catch (message) {
+        res.json({
+            message:"please login first"
+        })
     }
 
 })

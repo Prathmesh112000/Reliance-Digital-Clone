@@ -6,7 +6,8 @@ var userSchema = new mongoose.Schema({
     password: { type: String, required: true },
     mobile:{ type: String, required: true, index: { unique: true }},
     orders:[]
-});
+},
+{timestamps:true})
 
 const userModel=mongoose.model("user",userSchema)
 
