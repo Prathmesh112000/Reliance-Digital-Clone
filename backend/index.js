@@ -1,8 +1,17 @@
 const mongoose=require("mongoose")
 const express=require("express")
 const cartModel=require("./models/cartmodel")
+const userModel=require("./models/usermodel")
 const productModel=require("./models/productmodel")
+const crypto=require("crypto")
+// const Redis=require("ioredis")
+// const client=new Redis()
+const jwt=require("jsonwebtoken")
 const cors=require("cors")
+const { createClient } = require('redis')
+
+// const client = createClient();
+
 const app=express()
 
 const port=8080
@@ -41,15 +50,76 @@ mongoose.connect(dburl,connectionparams).then(()=>{
 
 app.get("/products",async(req,res)=>{
     const {category}=req.body
- 
-   const data=await productModel.find({category:category})
-
-//    console.log(data)
+    const data=await productModel.find({category:category})
    res.end(JSON.stringify(data))
-   
-
 })
 
+app.post("/signup",async(req,res)=>{
+    const {name,email,password,mobile}=req.body
+    try {
+        const hash=crypto.pbkdf2Sync(password,"SECRETKEY",60,64,"sha256").toString("hex")
+      const user=await userModel({
+        name,
+        mobile,
+        email,
+        password:hash,
+        "order":[]
+      })
+      await user.save()
+      res.end("user add success fully")
+      }
+      catch(err) {
+        res.end("user exist")
+      }
+})
+
+app.post("/login",async(req,res)=>{
+    const {email,password}=req.body
+   
+   try {
+        const data=await userModel.findOne({email})
+        const hash=crypto.pbkdf2Sync(password,"SECRETKEY",60,64,"sha256").toString("hex")
+       
+        if(data.password==hash){
+            const token=jwt.sign({"email":email},"SECRETKEY",{expiresIn:"90000ms"})
+            console.log(token)
+           
+            // client.set("token",token,"ex",6000000)
+            // const d=client.get("token")
+          
+            
+            res.end("log in success")
+        }
+        else{
+            res.end("Invalid password")
+        }
+   } catch (error) {
+        res.end("invalid credentials")
+   }
+})
+
+app.post("/checkout",async(req,res)=>{
+  
+    try {
+        const {token}=req.headers
+        const {productslist}=req.body
+        const decode=jwt.verify(token,"SECRETKEY")
+        if(decode){
+           await userModel.updateOne({"email":decode.email},{ $push: { orders: { $each: [ ...productslist ] } } })
+           res.end("order added successfully")
+        }
+        else{
+            res.end("error occred")
+        }
+
+       
+        
+
+    } catch (error) {
+        res.end("please login first")
+    }
+
+})
 
 
 
@@ -68,12 +138,6 @@ app.get("/products",async(req,res)=>{
     
 // })
 
-
-
-app.get("/show",async(req,res)=>{
-    var a=await cartModel.find()
-    res.end(JSON.stringify(a))
-})
 
 app.listen(port,()=>{
     console.log("listening at 8080");
