@@ -57,8 +57,9 @@ app.get("/products",async(req,res)=>{
 })
 
 app.post("/signup",async(req,res)=>{
-  try {
+
     const {name,email,password,mobile}=req.body
+   
     try {
         const hash=crypto.pbkdf2Sync(password,"SECRETKEY",60,64,"sha256").toString("hex")
       const user=await userModel({
@@ -74,15 +75,18 @@ app.post("/signup",async(req,res)=>{
       })
       }
       catch(err) {
-        res.json({
-            message:"user exist"
-        })
+        if(err.code){
+            res.json({
+                "message":"user already exisit"
+            })
+        }
+        else{
+            res.json({
+                "message":"Incomplete credentials"
+            })
+        }
       }
-  } catch (message) {
-    res.json({
-        message:"please enter all the credentials"
-    })
-  }
+  
 })
 
 app.post("/login",async(req,res)=>{
