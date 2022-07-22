@@ -1,3 +1,5 @@
+import { Route, Routes } from "react-router-dom";
+import HomeScreen from "./screens/HomeScreen";
 
 import './App.css';
 import Navbar from './components/NavFolder/Navbar';
@@ -7,13 +9,19 @@ import Checkout from './Pages/Checkout';
 
 function App() {
   return (
-    <div className="App">
+    <>
+      <Routes>
+        <Route path="/" element={<HomeScreen />} />        
+        <Route path="/checkout" element={<Checkout />} />        
+
+     </Routes>
+ 
       {/* <Navbar /> */}
       {/* <Product/> */}
       {/* <h1>Hello</h1> */}
       {/* <IndividualProduct/> */}
-      <Checkout/>
-    </div>
+   
+      </>
   );
 }
 
