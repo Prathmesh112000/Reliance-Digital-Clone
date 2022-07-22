@@ -8,9 +8,9 @@ const CategoryDiv = styled.div`
   // display: flex;
   // justify-content: space-around;
   // display: inline-flex;
+  // border-radius: 6px;
   text-align: center;
   align-items: center;
-  // border-radius: 6px;
   padding: 20px;
   border: 1px solid #dfe3e6;
   margin: 7.5px 15px 7.5px 0;
@@ -34,10 +34,9 @@ const StyledH2 = styled.p`
 `;
 const StyledH3 = styled.h3`
   font-size: 15px;
-  // color: #1f4985;
   color: #3a5f94;
+  // color: #1f4985;
   // 1f4985
-
   text-align: left;
 `;
 const Styledp = styled.p`
@@ -79,17 +78,52 @@ export const ProdCategory = ({ item }) => {
           <Styledp>{item.mrp}</Styledp>
           <StyledP>{item.save}</StyledP>
         </StyledDiv>
+        <div style={{ display: "flex", gap: "8px" }}>
+          <p
+            style={{
+              border: "1px solid #388636",
+              color: "#388636",
+              backgroundColor: "#effcf5",
+              fontSize: "10px",
+              borderRadius: "10px",
+              padding: "4px",
+            }}
+          >
+            OFFERS AVAILABLE
+          </p>
+          <p
+            style={{
+              border: "1px solid #388636",
+              color: "#388636",
+              backgroundColor: "#effcf5",
+              fontSize: "10px",
+              borderRadius: "10px",
+              padding: "4px",
+            }}
+          >
+            LIMITED TIME OFFER
+          </p>
+        </div>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <div style={{ display: "flex", border: "1px solid", gap: "5px" }}>
+          <div
+            style={{
+              display: "flex",
+              // border: "1px solid",
+              gap: "5px",
+              color: "#3a5f94",
+              // justifyContent: "center",
+            }}
+          >
             <input type="checkbox" name="" id="" />
             <p>Compare</p>
           </div>
           <div
             style={{
               display: "flex",
-              border: "1px solid black",
+              // border: "1px solid black",
               gap: "5px",
               color: "#3a5f94",
+              // justifyContent: "center",
             }}
           >
             <FontAwesomeIcon style={{ marginTop: "16px" }} icon={faHeart} />
