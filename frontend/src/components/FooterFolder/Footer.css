@@ -1,0 +1,33 @@
+.footer{
+    /* border:1px solid blue; */
+    margin-top:5%;
+    background-color: #1f4985;
+    color: white;
+    font-size: small;
+}
+.footertitle{
+    /* border:1px solid red; */
+    width:20%;
+    text-align: left;
+    padding: 1%;
+}
+.iconfooter{
+    /* border:1px solid red; */
+    font-size: xx-large;
+    width:40%;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    margin-top:-1%;
+}
+.linkfooter{
+    text-decoration: none;
+    color: white;
+}
+.footerdetail{
+    display: flex;
+    justify-content: space-around;
+}
+.applink{
+    width:90%
+}
