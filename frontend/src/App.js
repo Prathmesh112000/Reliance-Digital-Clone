@@ -6,22 +6,29 @@ import Navbar from './components/NavFolder/Navbar';
 import {Product} from './Pages/Product';
 import IndividualProduct from "./components/IndividualProduct";
 import Checkout from './Pages/Checkout';
-
+import Signup from "./components/Authentication/Signup"
+import Sign from './components/Authentication/Sign';
+import Login from "./components/Authentication/Login"
 function App() {
   return (
     <>
-      {/* <Routes>
+      <Routes>
         <Route path="/" element={<HomeScreen />} />        
-        <Route path="/checkout" element={<Checkout />} />        
+        <Route path="/checkout" element={<Checkout />} />     
+        <Route path="/signup" element={<Signup />} />    
+        <Route path="/login" element={<Login />} />    
 
-     </Routes> */}
+     </Routes>
  
       {/* <Navbar /> */}
       {/* <Product/> */}
       {/* <h1>Hello</h1> */}
-      <IndividualProduct/>
-   
-      </>
+      {/* <IndividualProduct/> */}
+      {/* <Checkout/> */}
+    {/* <Signup/> */}
+    {/* <Login/> */}
+    {/* <Sign/> */}
+    </>
   );
 }
 
