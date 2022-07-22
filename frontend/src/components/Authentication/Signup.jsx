@@ -1,5 +1,7 @@
 import React , {useState} from "react"
 import "./Signup.css"
+import axios from "axios"
+import Message from "../Message.js"
 
 function Signup(){
     const [formdata,setformdata]=useState({})
@@ -13,10 +15,23 @@ function Signup(){
             })
             
         }
+        if(inputname=="mobile"){
+            setformdata({
+                ...formdata,
+                mobile:e.target.value
+            })
+            
+        }
         if(inputname=="email"){
             setformdata({
                 ...formdata,
                 email:e.target.value
+            })
+        }
+        if(inputname=="confirmpass"){
+            setformdata({
+                ...formdata,
+                confirmpass:e.target.value
             })
         }
 
@@ -37,7 +52,17 @@ function Signup(){
 
     const handleSubmit=(e)=>{
         e.preventDefault()
-       
+        console.log(formdata.password)
+        console.log(formdata.confirmpass)
+        if(formdata.password==formdata.confirmpass){
+            axios.post("http://localhost:8080/signup",formdata).then(e=>{
+                alert(e.data.message)
+               })
+        }
+        else{
+            alert("please check your password")
+        }
+     
     }
 
 
@@ -58,10 +83,10 @@ function Signup(){
             <input type="email" placeholder="Email Address*" name="email" className="inpelem" onChange={onNameChange}/> <br/>
             <p style={{"fontSize":"14.4px","marginLeft":"40px","lineHeight":"3px"}}>Your email address will be used to send order invoice, order updates etc.</p>
             <button style={{"width":"190px", "marginLeft":"40px"}}>Verify Email</button>
-            <input type="number" placeholder="Mobile No*" className="inpelem" onChange={onNameChange}/> <br/>
+            <input type="number" name="mobile" placeholder="Mobile No*" className="inpelem" onChange={onNameChange}/> <br/>
             <p style={{"fontSize":"14.4px","marginLeft":"40px"}}>Your mobile number will be used to avail benefits such as Jio  Mart <br/> Cashback and  ROne Loyality Points and receive quick notifications.</p>
             <input type="password" placeholder="Password*" name="password" className="inpelem" onChange={onNameChange}/> <br/>
-            <input type="password" placeholder="Confirm Password*" name="confirmpass" className="inpelem"/> <br/>
+            <input type="password" placeholder="Confirm Password*" name="confirmpass" className="inpelem" onChange={onNameChange}/> <br/>
             {/* <input type="submit">Proceed</input> */}
             <button style={{"width":"480px","marginTop":"30px","height":"30px","marginLeft":"42px"}}>Proceed</button>
 

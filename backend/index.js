@@ -1,8 +1,17 @@
 const mongoose=require("mongoose")
 const express=require("express")
 const cartModel=require("./models/cartmodel")
+const userModel=require("./models/usermodel")
 const productModel=require("./models/productmodel")
+const crypto=require("crypto")
+// const Redis=require("ioredis")
+// const client=new Redis()
+const jwt=require("jsonwebtoken")
 const cors=require("cors")
+const { createClient } = require('redis')
+
+// const client = createClient();
+
 const app=express()
 
 const port=8080
@@ -41,15 +50,104 @@ mongoose.connect(dburl,connectionparams).then(()=>{
 
 app.get("/products",async(req,res)=>{
     const {category}=req.body
- 
-   const data=await productModel.find({category:category})
-
-//    console.log(data)
-   res.end(JSON.stringify(data))
-   
-
+    const data=await productModel.find({category:category})
+   res.json({
+    data
+   })
 })
 
+app.post("/signup",async(req,res)=>{
+
+    const {name,email,password,mobile}=req.body
+   
+    try {
+        const hash=crypto.pbkdf2Sync(password,"SECRETKEY",60,64,"sha256").toString("hex")
+      const user=await userModel({
+        name,
+        mobile,
+        email,
+        password:hash,
+        "order":[]
+      })
+      await user.save()
+      res.json({
+        message:"user add success fully"
+      })
+      }
+      catch(err) {
+        if(err.code){
+            res.json({
+                "message":"user already exisit"
+            })
+        }
+        else{
+            res.json({
+                "message":"Incomplete credentials"
+            })
+        }
+      }
+  
+})
+
+app.post("/login",async(req,res)=>{
+    const {email,password}=req.body
+   
+   try {
+        const data=await userModel.findOne({email})
+        const hash=crypto.pbkdf2Sync(password,"SECRETKEY",60,64,"sha256").toString("hex")
+       
+        if(data.password==hash){
+            const token=jwt.sign({"email":email},"SECRETKEY",{expiresIn:"90000ms"})
+            console.log(token)
+           
+            // client.set("token",token,"ex",6000000)
+            // const d=client.get("token")
+          const payload={
+            id:data.id,
+            name:data.name,
+            email:data.email,
+            token:token
+          }
+            
+            res.json({data:payload})
+        }
+        else{
+            res.json({
+                message:"Invalid password"
+            })
+        }
+   } catch (message) {
+        res.json({
+            message:"invalid credentials"
+        })
+   }
+})
+
+app.post("/cart",async(req,res)=>{
+  
+    try {
+        const {token}=req.headers
+        const {products}=req.body
+        const decode=jwt.verify(token,"SECRETKEY")
+        if(decode){
+           await userModel.updateOne({"email":decode.email},{ $push: { orders: products } })
+           res.json({
+            message:"order added successfully"
+           })
+        }
+        else{
+            res.json({
+                message:"message occred"
+            })
+        }
+
+    } catch (message) {
+        res.json({
+            message:"please login first"
+        })
+    }
+
+})
 
 
 
@@ -68,12 +166,6 @@ app.get("/products",async(req,res)=>{
     
 // })
 
-
-
-app.get("/show",async(req,res)=>{
-    var a=await cartModel.find()
-    res.end(JSON.stringify(a))
-})
 
 app.listen(port,()=>{
     console.log("listening at 8080");
