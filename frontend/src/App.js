@@ -10,16 +10,16 @@ import Checkout from './Pages/Checkout';
 function App() {
   return (
     <>
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<HomeScreen />} />        
         <Route path="/checkout" element={<Checkout />} />        
 
-     </Routes>
+     </Routes> */}
  
       {/* <Navbar /> */}
       {/* <Product/> */}
       {/* <h1>Hello</h1> */}
-      {/* <IndividualProduct/> */}
+      <IndividualProduct/>
    
       </>
   );
