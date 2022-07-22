@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import "../Checkout.css";
+import "../styles/Checkout.css";
 // import { loadData, saveData } from "../Utils/LocalStorage";
 
 const Checkout = () => {

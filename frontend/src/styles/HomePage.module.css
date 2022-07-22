@@ -1,0 +1,9 @@
+.smallText{
+    color: blue;
+    font-size:15px;
+    font-weight:500;
+    cursor: pointer;
+}
+.smallText:hover{
+    color: red;
+}

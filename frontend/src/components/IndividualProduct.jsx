@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import '../IndividualProduct.css'
+import '../styles/IndividualProduct.css'
 // import { useDispatch } from "react-redux";
 // import { addItem } from "../redux/action";
 
@@ -84,8 +84,8 @@ const IndividualProduct = () => {
                 <div className="pdp__featuresBlk__headerSec">
                   Gain more with offers (7)
                 </div>
-                <div>
-                  <ul className="pdp__ulListMain p__5">
+                <div className="styleForInlineBlock">
+                  <ol className="pdp__ulListMain p__5">
                     <li className="pdp__listStyle">
                       Flat 1500 Cashback on IndusInd Bank Credit EMI
                       transactions..{" "}
@@ -137,7 +137,7 @@ const IndividualProduct = () => {
                         Read T&amp;C
                       </a>
                     </li>
-                  </ul>
+                  </ol>
                   <div
                     className="sc-eqIVtm bdenGP"
                     id="RIL_PDPOffersSeeMoreLess"
@@ -159,7 +159,7 @@ const IndividualProduct = () => {
                     Read T&amp;C
                   </a>
                 </div>
-                <ul className="pdp__ulListMain p__5">
+                <ol className="pdp__ulListMain p__5">
                   <li className="pdp__listStyle">
                     <span className="pdp__emiTextStyle">
                       EMIs (Credit Cards) from ₹611.48/month |{" "}
@@ -168,7 +168,7 @@ const IndividualProduct = () => {
                       View all Standard Credit Cards EMI options
                     </span>
                   </li>
-                </ul>
+                </ol>
               </div>
               <div className="mt__10">
                 <ul className="pdp__ulListMain p__5">
@@ -187,7 +187,7 @@ const IndividualProduct = () => {
                 <div className="pdp__featuresBlk__headerSec">Key Features</div>
                 <div className="sc-jhAzac bLbRSS">
                   <div className="sc-fBuWsC eeihxG">
-                    <ul className="p__5 sc-fMiknA iPpdnk">
+                    <ol className="p__5 sc-fMiknA iPpdnk">
                       <li className="sc-dVhcbM bTeVOO">
                         <span>
                           Supported Apps: Netflix, You Tube, Hotstar, Zee5, Voot
@@ -204,7 +204,7 @@ const IndividualProduct = () => {
                       <li className="sc-dVhcbM bTeVOO">
                         <span>Connectivity: 2 HDMI ports, 1 USB ports</span>
                       </li>
-                    </ul>
+                    </ol>
                     <div
                       id="RIL_seeMore_Component"
                       className="sc-eqIVtm bdenGP"
@@ -216,7 +216,7 @@ const IndividualProduct = () => {
               </div>
               <div className="sc-bwzfXH hHJgov">
                 <div className="sc-bxivhb chPLnS"> Return Policy</div>
-                <ul className="pdp__ulListMain p__5 ">
+                <ol className="pdp__ulListMain p__5 ">
                   <li className="pdp__listStyle">
                     <span>
                       Items are eligible for return within 7 Days of Delivery
@@ -237,7 +237,7 @@ const IndividualProduct = () => {
                       returned in original condition.
                     </span>
                   </li>
-                </ul>
+                </ol>
               </div>
               <div className="sc-bwzfXH hHJgov sc-bxivhb chPLnS">
                 Got Feedback to share on this page?
@@ -249,7 +249,7 @@ const IndividualProduct = () => {
             <div className="blk__sm__6">
               {/* first div */}
               <div className="pdp__priceSection">
-                <ul className="pdp__priceSection__priceList">
+                <ol className="pdp__priceSection__priceList">
                   <li className="pdp__priceSection__priceListText">
                     Deal Price:{" "}
                     <span className="pdp__offerPrice">
@@ -282,7 +282,7 @@ const IndividualProduct = () => {
                   <li className="pdp__priceSection__priceListText">
                     <strong>FREE Shipping!</strong>
                   </li>
-                </ul>
+                </ol>
               </div>
               {/* pinocde section */}
               <div className="pdp__pincodeSection">
