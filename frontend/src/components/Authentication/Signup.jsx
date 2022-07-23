@@ -149,10 +149,16 @@ function Signup() {
             />{" "}
             <br />
             {/* <input type="submit">Proceed</input> */}
+<<<<<<< HEAD
             <input type="submit" value="Submit" />
           </form>
         </div>
       </div>
+=======
+            <button className="btn" style={{"width":"480px","marginTop":"30px","height":"30px","marginLeft":"42px"}}>Proceed</button>
+
+        </form>
+>>>>>>> main
     </div>
   );
 }
