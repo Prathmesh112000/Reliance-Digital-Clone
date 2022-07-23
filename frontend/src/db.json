@@ -127,6 +127,69 @@
       "price": "₹42,499.00",
       "mrp": "₹52,999.00",
       "save": "20%(₹10,500)"
+    },
+    {
+      "id": "17",
+      "img": "https://www.reliancedigital.in/medias/Samsung-M536BE-Mobile-Phone-492850534-i-1-1200Wx1200H-300Wx300H?context=bWFzdGVyfGltYWdlc3wzMDc3OXxpbWFnZS9qcGVnfGltYWdlcy9oZTMvaDVhLzk4NDEwMjE2MTYxNTguanBnfDYxZjRkODdhYmE1MDkxY2ViNjdiMTI5Zjk0NzI2ZGQyNTUyYWM5YmYzMTM0YjU0YjM4YzU3YmVlM2Q3MGY5MDE",
+      "name": "Samsung Galaxy M53 5G 128 GB, 8 GB RAM, Emerald Brown, Mobile Phone",
+      "price": "₹26,999.00",
+      "mrp": "₹34,999.00",
+      "save": "23%(₹8,000)"
+    },
+    {
+      "id": "18",
+      "img": "https://www.reliancedigital.in/medias/Samsung-SM-A336ELBPINS-Smart-Phone-492849817-i-1-1200Wx1200H-300Wx300H?context=bWFzdGVyfGltYWdlc3wyNzEwMXxpbWFnZS9qcGVnfGltYWdlcy9oZDQvaDgyLzk4MTMwMjA1MDgxOTAuanBnfGQyYTgwY2ZhYjliMWI4OGI3YjA5YjhmMGU2MDg0YmMyZGQzNjc4NGEwNDliYzYxY2E5ZjM2ZTE2MTNhYjM4YjI",
+      "name": "Samsung Galaxy A33 5G 128 GB, 6 GB RAM, Awesome Blue, Mobile Phone",
+      "price": "₹25,499.00",
+      "mrp": "₹32,999.00",
+      "save": "23%(₹7,500)"
+    },
+    {
+      "id": "19",
+      "img": "https://www.reliancedigital.in/medias/iPhone-11-128GB-White-491901645-i-1-1200Wx1200H-300Wx300H?context=bWFzdGVyfGltYWdlc3wxMzQ0MHxpbWFnZS9qcGVnfGltYWdlcy9oNmYvaDAyLzk0MjE5MTY3MDA3MDIuanBnfGVhYTI4NDk1NDhlYWQwNjgxYzNmYTE0NjBmYjdlY2YwMmVmMDcwYTIzOWU1Y2M3NDc1ZDZmNWNmMGVkMjJhOGQ",
+      "name": "Apple iPhone 11 128 GB, White (without Earpods and Adapter)",
+      "price": "₹49,900.00",
+      "mrp": "₹54,900.00",
+      "save": "9%(₹5,000)"
+    },
+    {
+      "id": "20",
+      "img": "https://www.reliancedigital.in/medias/Samsung-F42-Smart-Phone-491998471-i-1-1200Wx1200H-300Wx300H?context=bWFzdGVyfGltYWdlc3w1NzQ1OXxpbWFnZS9qcGVnfGltYWdlcy9oZDIvaDJmLzk3NTM1MTM2ODkxMTguanBnfGQyMmYzNGY4MWM3MjNiZTA3ZWNjYzAwMzQ1MmY4ZWZjNzE2OWM1YWExYjU4ZWM0ZmU3ZjU2YzQ3YzExYmM4Njg",
+      "name": "Samsung Galaxy F42 5G 128 GB, 6 GB RAM, Matte Aqua, Mobile Phone",
+      "price": "₹20,999.00",
+      "mrp": "",
+      "save": ""
+    },
+    {
+      "id": "21",
+      "img": "https://www.reliancedigital.in/medias/Apple-12-Mini-Smartphones-491901544-i-1-1200Wx1200H-300Wx300H?context=bWFzdGVyfGltYWdlc3wzNTAyOHxpbWFnZS9qcGVnfGltYWdlcy9oN2IvaGVkLzk0MDc3NjQ5ODc5MzQuanBnfDBiN2VmMDcwZWQxN2MyY2E3M2ZiZTFkMWFhYTlhMTA3ZjdjYzFiMTliZDA5M2M0YzNmNjJmOGM1MDExODQzMzI",
+      "name": "Apple iPhone 12 Mini 64 GB, White",
+      "price": "₹52,900.00",
+      "mrp": "₹59,900.00",
+      "save": "12%(₹7,000)"
+    },{
+      "id": "22",
+      "img": "https://www.reliancedigital.in/medias/Apple-iPhone-13-Pro-Smartphones-491997736-i-1-1200Wx1200H-300Wx300H?context=bWFzdGVyfGltYWdlc3w1NjEwN3xpbWFnZS9qcGVnfGltYWdlcy9oYzQvaDkyLzk2MzcyNzA4NDc1MTguanBnfGY0NTc2NGM2ODY4N2VmZDQ5YzNhNTAwOGU0YmJiMDAzYTkxMzU3ZTJmNGM2YWIxN2UyYmNjMmEzN2VjNjdkNjc",
+      "name": "Apple iPhone 13 Pro 256 GB, Sierra Blue",
+      "price": "₹1,29,900.00",
+      "mrp": "",
+      "save": ""
+    },
+    {
+      "id": "23",
+      "img": "https://www.reliancedigital.in/medias/Apple-12-Mini-Smartphones-491901545-i-1-1200Wx1200H-300Wx300H?context=bWFzdGVyfGltYWdlc3w0ODcwNnxpbWFnZS9qcGVnfGltYWdlcy9oMjgvaGVjLzk0MDc3Njc5MzcwNTQuanBnfGIyYjNjY2E3NWJhZTViYzY3MjczMTZjYzUwMDhjNmVjM2FmMzhiYjI5MTAzZDdiNzgyMDc3OWE4ZDkwODlhMjI",
+      "name": "Apple iPhone 12 Mini 64 GB, (Product)Red",
+      "price": "₹52,900.00",
+      "mrp": "₹59,900.00",
+      "save": "12%(₹7,000)"
+    },
+    {
+      "id": "24",
+      "img": "https://www.reliancedigital.in/medias/Apple-12-Smartphones-491901537-i-1-1200Wx1200H-300Wx300H?context=bWFzdGVyfGltYWdlc3w0MjE5NnxpbWFnZS9qcGVnfGltYWdlcy9oZWEvaDExLzk0MDc3NDExMzI4MzAuanBnfDMyYzZkZjBlZmEyNTRkNGVjOGY4MTk1MWYwYzg2Yjg0YjdlNjI2N2QwNDgwMmM5OTUxZTcwYjZiYjA1YTc5Yzc",
+      "name": "Apple iPhone 12 128 GB, Green",
+      "price": "₹60,900.00",
+      "mrp": "₹70,900.00",
+      "save": "14%(₹10,000)"
     }
   ]
 }

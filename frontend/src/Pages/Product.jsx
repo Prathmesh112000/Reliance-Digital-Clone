@@ -138,22 +138,22 @@ export const Product = () => {
 
   useEffect(() => {
     const getData = async () => {
-      try {
-        let res = await fetch(`http://localhost:8080/product`);
-        let data = await res.json();
-        console.log(data);
-        setData(data);
-      } catch (err) {
-        console.log("err:", err);
-      }
-      // const payload = { category: "mobile" };
       // try {
-      //   axios
-      //     .post("https://quiet-citadel-13240.herokuapp.com/products")
-      //     .then((res) => console.log(res));
+      //   let res = await fetch(`http://localhost:8080/product`);
+      //   let data = await res.json();
+      //   console.log(data);
+      //   setData(data);
       // } catch (err) {
       //   console.log("err:", err);
       // }
+      const payload = { category: "mobile" };
+      try {
+        axios
+          .post("https://quiet-citadel-13240.herokuapp.com/products", payload)
+          .then((res) => setData(res.data.data));
+      } catch (err) {
+        console.log("err:", err);
+      }
     };
     getData();
   }, []);
@@ -369,9 +369,9 @@ export const Product = () => {
           {/* <div
             // style={{ display: "flex" }}
           > */}
-            <Stack spacing={2} sx={{ display: "flex",border: "1px solid"}}>
-              <Pagination count={50} />;
-            </Stack>
+          <Stack spacing={2} sx={{ display: "flex", border: "1px solid" }}>
+            <Pagination count={50} />;
+          </Stack>
           {/* </div> */}
           <div
             style={{
