@@ -1,5 +1,6 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
+import axios from "axios";
 import Slider from "@mui/material/Slider";
 import { ProdCategory } from "./ProdCategory";
 import styled from "styled-components";
@@ -118,13 +119,21 @@ export const Product = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        let res = await fetch(`http://localhost:8080/products`);
+        let res = await fetch(`http://localhost:8080/product`);
         let data = await res.json();
         console.log(data.data);
         setData(data);
       } catch (err) {
         console.log("err:", err);
       }
+      // const payload = { category: "mobile" };
+      // try {
+      //   axios
+      //     .post("https://quiet-citadel-13240.herokuapp.com/products")
+      //     .then((res) => console.log(res));
+      // } catch (err) {
+      //   console.log("err:", err);
+      // }
     };
     getData();
   }, []);
@@ -335,15 +344,9 @@ export const Product = () => {
               {data.map((item) => {
                 return <ProdCategory key={item.id} item={item} />;
               })}
-              {/* <Stack spacing={2}>
-          <Pagination count={42} />
-        </Stack> */}
             </StyledProdList>
           </div>
-          {/* <div style={{ border: "1px solid" }}>Pagination</div> */}
           <div style={{ display: "flex" }}>
-            {/* <Pagination defaultCurrent={1} total={50} />; */}
-
             <Stack spacing={2}>
               <Pagination count={50} />;
             </Stack>
@@ -382,92 +385,97 @@ export const Product = () => {
                 can help you choose better:
               </p>
               <table style={{ borderCollapse: "collapse", width: "66%" }}>
-                <tr>
-                  <StyledTh>Features</StyledTh>
-                  <StyledTh>Android</StyledTh>
-                  <StyledTh>iOS</StyledTh>
-                </tr>
-                <tr>
-                  <StyledTh>Latest Stable Release</StyledTh>
-                  <StyledTd>Android 10</StyledTd>
-                  <StyledTd>iOS 13.3.1 and iPadOS 13.3.1</StyledTd>
-                </tr>
-                <tr>
-                  <StyledTh>Customizability</StyledTh>
-                  <StyledTd>A lot. Can change almost anything.</StyledTd>
-                  <StyledTd>Limited unless jailbroken</StyledTd>
-                </tr>
-                <tr>
-                  <StyledTh>Internet Browsing</StyledTh>
-                  <StyledTd>
-                    Google Chrome (other browsers are available).
-                  </StyledTd>
-                  <StyledTd>
-                    Safari (Other browsers are available but not as default)
-                  </StyledTd>
-                </tr>
-                <tr>
-                  <StyledTh>Web Mapping Service</StyledTh>
-                  <StyledTd>Google Maps</StyledTd>
-                  <StyledTd>
-                    Apple Maps, default as of iOS 6 (Google Maps also available
-                    via a separate app download)
-                  </StyledTd>
-                </tr>
-                <tr>
-                  <StyledTh>Available On</StyledTh>
-                  <StyledTd>
-                    Major manufacturers such as Samsung, Oppo, OnePlus, Vivo,
-                    Honor, and Xiaomi. Pixel and Android One devices are pure
-                    Android.
-                  </StyledTd>
-                  <StyledTd>
-                    iPod Touch, iPhone, iPad, Apple TV (2nd and 3rd generation)
-                  </StyledTd>
-                </tr>
-                <tr>
-                  <StyledTh>Calls and Messaging</StyledTh>
-                  <StyledTd>
-                    Google Messages. 3rd party apps like Facebook Messenger,
-                    WhatsApp, Google Duo, Discord, and Skype all work on Android
-                    and iOS.
-                  </StyledTd>
-                  <StyledTd>
-                    iMessage, FaceTime (with other Apple devices only), and the
-                    rest of the apps as in Android.
-                  </StyledTd>
-                </tr>
-                <tr>
-                  <StyledTh>App Store</StyledTh>
-                  <StyledTd>
-                    Google Play Store – 2,000,000+ apps. Other app stores like
-                    Amazon and Aptoide also distribute Android apps.
-                  </StyledTd>
-                  <StyledTd>
-                    Apple App Store – 1,000,000+ apps. Apps containing viruses
-                    are very rare or nonexistent.
-                  </StyledTd>
-                </tr>
-                <tr>
-                  <StyledTh>Photos & Videos Backup</StyledTh>
-                  <StyledTd>
-                    Apps are available for an automatic backup of photos and
-                    videos. Google Photos allows unlimited backup of photos at a
-                    compressed quality.
-                  </StyledTd>
-                  <StyledTd>
-                    Up to 5 GB of photos and videos can be automatically backed
-                    up with iCloud, with more paid iCloud storage available via
-                    subscription.
-                  </StyledTd>
-                </tr>
-                <tr>
-                  <StyledTh>Security</StyledTh>
-                  <StyledTd>Monthly security updates</StyledTd>
-                  <StyledTd>
-                    Occasional security updates. Security threats are rare.
-                  </StyledTd>
-                </tr>
+                <thead>
+                  <tr>
+                    <StyledTh>Features</StyledTh>
+                    <StyledTh>Android</StyledTh>
+                    <StyledTh>iOS</StyledTh>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <StyledTh>Latest Stable Release</StyledTh>
+                    <StyledTd>Android 10</StyledTd>
+                    <StyledTd>iOS 13.3.1 and iPadOS 13.3.1</StyledTd>
+                  </tr>
+                  <tr>
+                    <StyledTh>Customizability</StyledTh>
+                    <StyledTd>A lot. Can change almost anything.</StyledTd>
+                    <StyledTd>Limited unless jailbroken</StyledTd>
+                  </tr>
+                  <tr>
+                    <StyledTh>Internet Browsing</StyledTh>
+                    <StyledTd>
+                      Google Chrome (other browsers are available).
+                    </StyledTd>
+                    <StyledTd>
+                      Safari (Other browsers are available but not as default)
+                    </StyledTd>
+                  </tr>
+                  <tr>
+                    <StyledTh>Web Mapping Service</StyledTh>
+                    <StyledTd>Google Maps</StyledTd>
+                    <StyledTd>
+                      Apple Maps, default as of iOS 6 (Google Maps also
+                      available via a separate app download)
+                    </StyledTd>
+                  </tr>
+                  <tr>
+                    <StyledTh>Available On</StyledTh>
+                    <StyledTd>
+                      Major manufacturers such as Samsung, Oppo, OnePlus, Vivo,
+                      Honor, and Xiaomi. Pixel and Android One devices are pure
+                      Android.
+                    </StyledTd>
+                    <StyledTd>
+                      iPod Touch, iPhone, iPad, Apple TV (2nd and 3rd
+                      generation)
+                    </StyledTd>
+                  </tr>
+                  <tr>
+                    <StyledTh>Calls and Messaging</StyledTh>
+                    <StyledTd>
+                      Google Messages. 3rd party apps like Facebook Messenger,
+                      WhatsApp, Google Duo, Discord, and Skype all work on
+                      Android and iOS.
+                    </StyledTd>
+                    <StyledTd>
+                      iMessage, FaceTime (with other Apple devices only), and
+                      the rest of the apps as in Android.
+                    </StyledTd>
+                  </tr>
+                  <tr>
+                    <StyledTh>App Store</StyledTh>
+                    <StyledTd>
+                      Google Play Store – 2,000,000+ apps. Other app stores like
+                      Amazon and Aptoide also distribute Android apps.
+                    </StyledTd>
+                    <StyledTd>
+                      Apple App Store – 1,000,000+ apps. Apps containing viruses
+                      are very rare or nonexistent.
+                    </StyledTd>
+                  </tr>
+                  <tr>
+                    <StyledTh>Photos & Videos Backup</StyledTh>
+                    <StyledTd>
+                      Apps are available for an automatic backup of photos and
+                      videos. Google Photos allows unlimited backup of photos at
+                      a compressed quality.
+                    </StyledTd>
+                    <StyledTd>
+                      Up to 5 GB of photos and videos can be automatically
+                      backed up with iCloud, with more paid iCloud storage
+                      available via subscription.
+                    </StyledTd>
+                  </tr>
+                  <tr>
+                    <StyledTh>Security</StyledTh>
+                    <StyledTd>Monthly security updates</StyledTd>
+                    <StyledTd>
+                      Occasional security updates. Security threats are rare.
+                    </StyledTd>
+                  </tr>
+                </tbody>
               </table>
               <h5>Buy Mobile Phones As Per Price Band</h5>
               <h5>Features of mobile phones below 5000</h5>
@@ -481,136 +489,146 @@ export const Product = () => {
             >
               <p>Smartphones Price List</p>
               <table style={{ borderCollapse: "collapse" }}>
-                <tr>
-                  <Styledth>S.no</Styledth>
-                  <Styledth>Products - Smartphones</Styledth>
-                  <Styledth>Price</Styledth>
-                </tr>
-                <tr>
-                  <Styledtd>1</Styledtd>
-                  <Styledtd>
-                    <a
-                      href="#"
-                      style={{ textDecoration: "none", color: "#1774ef" }}
-                    >
-                      OnePlus 9 128 GB, 8 GB RAM, Arctic Sky, Mobile Phone
-                    </a>
-                  </Styledtd>
-                  <Styledtd>₹37,999.00</Styledtd>
-                </tr>
-                <tr>
-                  <Styledtd>2</Styledtd>
-                  <Styledtd>
-                    <a
-                      href=""
-                      style={{ textDecoration: "none", color: "#1774ef" }}
-                    >
-                      Motorola E32s 32 GB, 3 GB RAM, Slate Gray, Mobile Phone
-                    </a>
-                  </Styledtd>
-                  <Styledtd>₹7,999.00</Styledtd>
-                </tr>
-                <tr>
-                  <Styledtd>3</Styledtd>
-                  <Styledtd>
-                    <a
-                      href=""
-                      style={{ textDecoration: "none", color: "#1774ef" }}
-                    >
-                      OnePlus 9 Pro 128 GB, 8 GB RAM, Morning Mist, Mobile Ph...
-                    </a>
-                  </Styledtd>
-                  <Styledtd>₹49,999.00</Styledtd>
-                </tr>
-                <tr>
-                  <Styledtd>4</Styledtd>
-                  <Styledtd>
-                    <a
-                      href=""
-                      style={{ textDecoration: "none", color: "#1774ef" }}
-                    >
-                      Motorola E32s 32 GB, 3 GB RAM, Misty Silver, Mobile Pho...
-                    </a>
-                  </Styledtd>
-                  <Styledtd>₹7,999.00</Styledtd>
-                </tr>
-                <tr>
-                  <Styledtd>5</Styledtd>
-                  <Styledtd>
-                    <a
-                      href="#"
-                      style={{ textDecoration: "none", color: "#1774ef" }}
-                    >
-                      Samsung Galaxy M52 128 GB, 6 GB RAM Icy Blue, Mobile Ph...
-                    </a>
-                  </Styledtd>
-                  <Styledtd>₹20,999.00</Styledtd>
-                </tr>
-                <tr>
-                  <Styledtd>6</Styledtd>
-                  <Styledtd>
-                    <a
-                      href="#"
-                      style={{ textDecoration: "none", color: "#1774ef" }}
-                    >
-                      Oppo K10 128 GB, 6 GB RAM, Black Carbon, Mobile Phone
-                    </a>
-                  </Styledtd>
-                  <Styledtd>₹14,990.00</Styledtd>
-                </tr>
-                <tr>
-                  <Styledtd>7</Styledtd>
-                  <Styledtd>
-                    <a
-                      href="#"
-                      style={{ textDecoration: "none", color: "#1774ef" }}
-                    >
-                      OnePlus 9 Pro 256 GB, 12 GB RAM, Pine Green, Mobile Pho...
-                    </a>
-                  </Styledtd>
-                  <Styledtd>₹54,999.00</Styledtd>
-                </tr>
-                <tr>
-                  <Styledtd>8</Styledtd>
-                  <Styledtd>
-                    <a
-                      href="#"
-                      style={{ textDecoration: "none", color: "#1774ef" }}
-                    >
-                      Redmi 9A Sport 32 GB 3 GB RAM, Coral Green, Mobile Phon...
-                    </a>
-                  </Styledtd>
-                  <Styledtd>₹7,999.00</Styledtd>
-                </tr>
-                <tr>
-                  <Styledtd>9</Styledtd>
-                  <Styledtd>
-                    <a
-                      href="#"
-                      style={{ textDecoration: "none", color: "#1774ef" }}
-                    >
-                      Motorola G82 5G 128GB, 8GB RAM, Meteorite Gray, Mobile ...
-                    </a>
-                  </Styledtd>
-                  <Styledtd>₹22,999.00</Styledtd>
-                </tr>
-                <tr>
-                  <Styledtd>10</Styledtd>
-                  <Styledtd>
-                    <a
-                      href="#"
-                      style={{ textDecoration: "none", color: "#1774ef" }}
-                    >
-                      Apple iPhone 12 128 GB, Blue
-                    </a>
-                  </Styledtd>
-                  <Styledtd>₹60,900.00</Styledtd>
-                </tr>
-                <tr>
+                <thead>
+                  <tr>
+                    <Styledth>S.no</Styledth>
+                    <Styledth>Products - Smartphones</Styledth>
+                    <Styledth>Price</Styledth>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <Styledtd>1</Styledtd>
+                    <Styledtd>
+                      <a
+                        href="#"
+                        style={{ textDecoration: "none", color: "#1774ef" }}
+                      >
+                        OnePlus 9 128 GB, 8 GB RAM, Arctic Sky, Mobile Phone
+                      </a>
+                    </Styledtd>
+                    <Styledtd>₹37,999.00</Styledtd>
+                  </tr>
+                  <tr>
+                    <Styledtd>2</Styledtd>
+                    <Styledtd>
+                      <a
+                        href=""
+                        style={{ textDecoration: "none", color: "#1774ef" }}
+                      >
+                        Motorola E32s 32 GB, 3 GB RAM, Slate Gray, Mobile Phone
+                      </a>
+                    </Styledtd>
+                    <Styledtd>₹7,999.00</Styledtd>
+                  </tr>
+                  <tr>
+                    <Styledtd>3</Styledtd>
+                    <Styledtd>
+                      <a
+                        href=""
+                        style={{ textDecoration: "none", color: "#1774ef" }}
+                      >
+                        OnePlus 9 Pro 128 GB, 8 GB RAM, Morning Mist, Mobile
+                        Ph...
+                      </a>
+                    </Styledtd>
+                    <Styledtd>₹49,999.00</Styledtd>
+                  </tr>
+                  <tr>
+                    <Styledtd>4</Styledtd>
+                    <Styledtd>
+                      <a
+                        href=""
+                        style={{ textDecoration: "none", color: "#1774ef" }}
+                      >
+                        Motorola E32s 32 GB, 3 GB RAM, Misty Silver, Mobile
+                        Pho...
+                      </a>
+                    </Styledtd>
+                    <Styledtd>₹7,999.00</Styledtd>
+                  </tr>
+                  <tr>
+                    <Styledtd>5</Styledtd>
+                    <Styledtd>
+                      <a
+                        href="#"
+                        style={{ textDecoration: "none", color: "#1774ef" }}
+                      >
+                        Samsung Galaxy M52 128 GB, 6 GB RAM Icy Blue, Mobile
+                        Ph...
+                      </a>
+                    </Styledtd>
+                    <Styledtd>₹20,999.00</Styledtd>
+                  </tr>
+                  <tr>
+                    <Styledtd>6</Styledtd>
+                    <Styledtd>
+                      <a
+                        href="#"
+                        style={{ textDecoration: "none", color: "#1774ef" }}
+                      >
+                        Oppo K10 128 GB, 6 GB RAM, Black Carbon, Mobile Phone
+                      </a>
+                    </Styledtd>
+                    <Styledtd>₹14,990.00</Styledtd>
+                  </tr>
+                  <tr>
+                    <Styledtd>7</Styledtd>
+                    <Styledtd>
+                      <a
+                        href="#"
+                        style={{ textDecoration: "none", color: "#1774ef" }}
+                      >
+                        OnePlus 9 Pro 256 GB, 12 GB RAM, Pine Green, Mobile
+                        Pho...
+                      </a>
+                    </Styledtd>
+                    <Styledtd>₹54,999.00</Styledtd>
+                  </tr>
+                  <tr>
+                    <Styledtd>8</Styledtd>
+                    <Styledtd>
+                      <a
+                        href="#"
+                        style={{ textDecoration: "none", color: "#1774ef" }}
+                      >
+                        Redmi 9A Sport 32 GB 3 GB RAM, Coral Green, Mobile
+                        Phon...
+                      </a>
+                    </Styledtd>
+                    <Styledtd>₹7,999.00</Styledtd>
+                  </tr>
+                  <tr>
+                    <Styledtd>9</Styledtd>
+                    <Styledtd>
+                      <a
+                        href="#"
+                        style={{ textDecoration: "none", color: "#1774ef" }}
+                      >
+                        Motorola G82 5G 128GB, 8GB RAM, Meteorite Gray, Mobile
+                        ...
+                      </a>
+                    </Styledtd>
+                    <Styledtd>₹22,999.00</Styledtd>
+                  </tr>
+                  <tr>
+                    <Styledtd>10</Styledtd>
+                    <Styledtd>
+                      <a
+                        href="#"
+                        style={{ textDecoration: "none", color: "#1774ef" }}
+                      >
+                        Apple iPhone 12 128 GB, Blue
+                      </a>
+                    </Styledtd>
+                    <Styledtd>₹60,900.00</Styledtd>
+                  </tr>
+                </tbody>
+                {/* <tr>
                   <Styledtd>
                     Smartphones Price List updated on 21-07-2022
                   </Styledtd>
-                </tr>
+                </tr> */}
               </table>
             </div>
           </div>
