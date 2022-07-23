@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "react-router-dom": "^6.3.0",
-    "react-slick": "^0.29.0"
-  }
-}
