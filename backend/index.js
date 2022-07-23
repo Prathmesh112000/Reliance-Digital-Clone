@@ -1,7 +1,7 @@
 const mongoose=require("mongoose")
 const express=require("express")
 const cartModel=require("./models/cartmodel")
-const userModel=require("./models/usermodel")
+const userModel = require("./models/usermodel")
 const productModel=require("./models/productmodel")
 const crypto=require("crypto")
 // const Redis=require("ioredis")
@@ -12,13 +12,14 @@ const { createClient } = require('redis')
 
 // const client = createClient();
 
-const app=express()
+const app = express()
+
 
 
 const dburl="mongodb+srv://prathmeshnerle:pgglLAZLiT6V9Sx4@cluster0.hneyh.mongodb.net/?retryWrites=true&w=majority"
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
-app.use(cors({origin:[]}))
+app.use(cors());
 
 
 
