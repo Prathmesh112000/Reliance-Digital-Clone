@@ -14,11 +14,17 @@ const { createClient } = require('redis')
 
 const app=express()
 
-const port=8080
+
 const dburl="mongodb+srv://prathmeshnerle:pgglLAZLiT6V9Sx4@cluster0.hneyh.mongodb.net/?retryWrites=true&w=majority"
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
-app.use(cors())
+app.use(cors({origin:[]}))
+
+
+
+
+
+
 const connectionparams={
     useNewUrlParser:true,
     useUnifiedTopology:true
@@ -56,9 +62,14 @@ app.post("/products",async(req,res)=>{
    })
 })
 
+app.get("/",(req,res)=>{
+    res.send("hpme page")
+})
+
 app.post("/signup",async(req,res)=>{
-  try {
+
     const {name,email,password,mobile}=req.body
+   
     try {
         const hash=crypto.pbkdf2Sync(password,"SECRETKEY",60,64,"sha256").toString("hex")
       const user=await userModel({
@@ -74,15 +85,18 @@ app.post("/signup",async(req,res)=>{
       })
       }
       catch(err) {
-        res.json({
-            message:"user exist"
-        })
+        if(err.code){
+            res.json({
+                "message":"user already exisit"
+            })
+        }
+        else{
+            res.json({
+                "message":"Incomplete credentials"
+            })
+        }
       }
-  } catch (message) {
-    res.json({
-        message:"please enter all the credentials"
-    })
-  }
+  
 })
 
 app.post("/login",async(req,res)=>{
@@ -163,6 +177,6 @@ app.post("/cart",async(req,res)=>{
 // })
 
 
-app.listen(port,()=>{
+app.listen(8080 || process.env.PORT ,()=>{
     console.log("listening at 8080");
 })
