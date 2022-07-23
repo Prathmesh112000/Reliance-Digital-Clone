@@ -15,9 +15,11 @@ function App() {
      <Navbar />
       <Routes>
         <Route path="/" element={<HomeScreen />} />        
+        <Route path="/product" element={<Product/>} /> 
         <Route path="/checkout" element={<Checkout />} />     
         <Route path="/signup" element={<Signup />} />    
-        <Route path="/login" element={<Login />} />    
+        <Route path="/login" element={<Login />} /> 
+        
 
      </Routes>
  
@@ -26,6 +28,7 @@ function App() {
       {/* <h1>Hello</h1> */}
       {/* <IndividualProduct/> */}
       {/* <Checkout/> */}
+  
     {/* <Signup/> */}
     {/* <Login/> */}
     {/* <Sign/> */}
