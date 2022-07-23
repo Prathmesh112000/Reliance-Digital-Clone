@@ -18,7 +18,7 @@ const app=express()
 const dburl="mongodb+srv://prathmeshnerle:pgglLAZLiT6V9Sx4@cluster0.hneyh.mongodb.net/?retryWrites=true&w=majority"
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
-app.use(cors({origin:[]}))
+app.use(cors({origin:["http://localhost:3000"]}))
 
 
 
@@ -81,7 +81,7 @@ app.post("/signup",async(req,res)=>{
       })
       await user.save()
       res.json({
-        message:"user add success fully"
+        message:"user add successfully"
       })
       }
       catch(err) {
