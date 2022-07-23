@@ -2,6 +2,7 @@ import React from "react";
 import Carousel from "../components/MainCarousel";
 import { FaHome } from "react-icons/fa";
 import styled from "../styles/HomePage.module.css";
+import ProductCarousel from "../components/ProductsCaraousel";
 
 const HomeScreen = () => {
   return (
@@ -22,6 +23,7 @@ const HomeScreen = () => {
         BEST DEALS ON LATEST LAPTOPS |
         <span className={styled.smallText}>VIEW ALL</span>
       </p>
+      <ProductCarousel />
       <div className="px-2 mb-2">
         <p className="fs-4 py-3 px-3">TOP BRANDS - WASHING MACHINE</p>
         <img
