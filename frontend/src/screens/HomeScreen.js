@@ -2,7 +2,7 @@ import React from "react";
 import Carousel from "../components/MainCarousel";
 import { FaHome } from "react-icons/fa";
 import styled from "../styles/HomePage.module.css";
-import ProductCarousel from "../components/ProductsCaraousel";
+import ProductCarousel from "../components/LaptopCarousel";
 
 const HomeScreen = () => {
   return (
