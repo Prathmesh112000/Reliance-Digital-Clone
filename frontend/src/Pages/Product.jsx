@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import { ProdCategory } from "./ProdCategory";
 import styled from "styled-components";
-import "../App.css";
+import "../styles/Product.css";
 import { Pagination } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import { useEffect, useState } from "react";
@@ -15,12 +15,10 @@ import { autoPlay } from "react-swipeable-views-utils";
 import MobileStepper from "@mui/material/MobileStepper";
 import Paper from "@mui/material/Paper";
 import { useTheme } from "@mui/material/styles";
-// import * as react from "react";
-// import Pagination from "@mui/material/Pagination";
-// import Stack from "@mui/material/Stack";
 
 const Boxx = styled.div`
   border: 1px solid;
+  width: 100%;
   display: flex;
   // margin-top: 123px;
   // top: 10%;
@@ -120,9 +118,9 @@ export const Product = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        let res = await fetch(`http://localhost:8080/Product`);
+        let res = await fetch(`http://localhost:8080/products`);
         let data = await res.json();
-        console.log(data);
+        console.log(data.data);
         setData(data);
       } catch (err) {
         console.log("err:", err);
@@ -138,7 +136,7 @@ export const Product = () => {
         src="https://www.reliancedigital.in/medias/iPhone-12-CLP-Banner-D.jpg?context=bWFzdGVyfGltYWdlc3w5MTkwMXxpbWFnZS9qcGVnfGltYWdlcy9oMmIvaGQ0Lzk4NjQ0NjE5NDI4MTQuanBnfDU5MWNiNmMxOGNiZGM5NDM4MDliMzdjYTY1ODZkOWEyMDhlOTMwNjU1N2QzNWEyNWI3ODA5ZWZiYzAyNjQ1OTg"
         alt="img"
       />
-      <Box sx={{ flexGrow: 1, marginTop:"-55px" }}>
+      <Box sx={{ flexGrow: 1, marginTop: "-55px" }}>
         <Paper
           square
           elevation={0}
@@ -210,12 +208,12 @@ export const Product = () => {
         />
       </Box>
       <Boxx>
-        <div style={{ width: "30%", paddingLeft: "8px" }}>
+        <div style={{ width: "55%", paddingLeft: "8px" }}>
           <h2>FILTERS</h2>
           <hr />
           <div>
             <h3>Price</h3>
-            <Box sx={{ width: 230, paddingLeft: 0.9 }}>
+            <Box sx={{ width: 200, paddingLeft: 0.9 }}>
               <Slider
                 getAriaLabel={() => "Minimum distance"}
                 value={value}
@@ -305,15 +303,43 @@ export const Product = () => {
           <hr />
           <p>USB</p>
         </div>
+
         <div>
-          <StyledProdList>
-            {data.map((item) => {
-              return <ProdCategory key={item.id} item={item} />;
-            })}
-            {/* <Stack spacing={2}>
+          <div
+          // style={{ border: '1px solid' }}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                border: "1px solid",
+                borderBottom: "none",
+              }}
+            >
+              <h2 style={{ paddingLeft: "11px" }}>SMARTPHONES</h2>
+              <div
+                style={{ display: "flex", border: "1px", paddingRight: "10px" }}
+              >
+                <p>Sort by :</p>
+                <select name="" id="" style={{ border: "none" }}>
+                  <option value="Relevance">Relevance</option>
+                  <option value="Relevance">Name(A-Z)</option>
+                  <option value="Relevance">Name(Z-A)</option>
+                  <option value="Relevance">Price(Low-High)</option>
+                  <option value="Relevance">Price(High-Low)</option>
+                </select>
+              </div>
+            </div>
+
+            <StyledProdList>
+              {data.map((item) => {
+                return <ProdCategory key={item.id} item={item} />;
+              })}
+              {/* <Stack spacing={2}>
           <Pagination count={42} />
         </Stack> */}
-          </StyledProdList>
+            </StyledProdList>
+          </div>
           {/* <div style={{ border: "1px solid" }}>Pagination</div> */}
           <div style={{ display: "flex" }}>
             {/* <Pagination defaultCurrent={1} total={50} />; */}

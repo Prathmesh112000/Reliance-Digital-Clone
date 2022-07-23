@@ -88,7 +88,7 @@ function Signup(){
             <input type="password" placeholder="Password*" name="password" className="inpelem" onChange={onNameChange}/> <br/>
             <input type="password" placeholder="Confirm Password*" name="confirmpass" className="inpelem" onChange={onNameChange}/> <br/>
             {/* <input type="submit">Proceed</input> */}
-            <button style={{"width":"480px","marginTop":"30px","height":"30px","marginLeft":"42px"}}>Proceed</button>
+            <input type="submit" value="Submit" />
 
         </form>
     </div>
