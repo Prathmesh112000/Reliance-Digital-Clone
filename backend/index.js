@@ -14,7 +14,7 @@ const { createClient } = require('redis')
 
 const app=express()
 
-const port=8080 || process.env.port 
+
 const dburl="mongodb+srv://prathmeshnerle:pgglLAZLiT6V9Sx4@cluster0.hneyh.mongodb.net/?retryWrites=true&w=majority"
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
@@ -60,6 +60,10 @@ app.get("/products",async(req,res)=>{
    res.json({
     data
    })
+})
+
+app.get("/",(req,res)=>{
+    res.send("hpme page")
 })
 
 app.post("/signup",async(req,res)=>{
@@ -173,6 +177,6 @@ app.post("/cart",async(req,res)=>{
 // })
 
 
-app.listen(port,()=>{
+app.listen(8080 || process.env.PORT ,()=>{
     console.log("listening at 8080");
 })
