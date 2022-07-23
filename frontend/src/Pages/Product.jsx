@@ -25,7 +25,6 @@ const Boxx = styled.div`
   // top: 10%;
   // position: relative;
 `;
-
 const StyledProdList = styled.div`
   border: 1px solid;
   display: grid;
@@ -34,10 +33,31 @@ const StyledProdList = styled.div`
   padding-left: 12px;
   // margin: 20px ;
 `;
-
 const StyledCheckBox = styled.div`
   gap: 7px;
   display: flex;
+`;
+const StyledTh = styled.th`
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 10px;
+`;
+const Styledth = styled.th`
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+`;
+const StyledTd = styled.td`
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 10px;
+  font-size: 13px;
+`;
+const Styledtd = styled.td`
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+  font-size: 12px;
 `;
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
@@ -121,7 +141,7 @@ export const Product = () => {
       try {
         let res = await fetch(`http://localhost:8080/product`);
         let data = await res.json();
-        console.log(data.data);
+        console.log(data);
         setData(data);
       } catch (err) {
         console.log("err:", err);
@@ -182,7 +202,7 @@ export const Product = () => {
           ))}
         </AutoPlaySwipeableViews>
         <MobileStepper
-          sx={{ marginTop: "-35px" }}
+          sx={{ marginTop: "-25px" }}
           steps={maxSteps}
           position="static"
           activeStep={activeStep}
@@ -346,11 +366,13 @@ export const Product = () => {
               })}
             </StyledProdList>
           </div>
-          <div style={{ display: "flex" }}>
-            <Stack spacing={2}>
+          {/* <div
+            // style={{ display: "flex" }}
+          > */}
+            <Stack spacing={2} sx={{ display: "flex",border: "1px solid"}}>
               <Pagination count={50} />;
             </Stack>
-          </div>
+          {/* </div> */}
           <div
             style={{
               display: "flex",
@@ -638,12 +660,6 @@ export const Product = () => {
   );
 };
 
-// function BasicPagination() {
-//   return (
-
-//   );
-// }
-
 function InputBox({ placeholder, type, onChange }) {
   const [onFucus, setOnFocus] = React.useState(false);
   const [value, setValue] = React.useState("");
@@ -682,26 +698,3 @@ function InputBox({ placeholder, type, onChange }) {
     </div>
   );
 }
-
-const StyledTh = styled.th`
-  border: 1px solid #dddddd;
-  text-align: center;
-  padding: 10px;
-`;
-const Styledth = styled.th`
-  border: 1px solid #dddddd;
-  text-align: center;
-  padding: 8px;
-`;
-const StyledTd = styled.td`
-  border: 1px solid #dddddd;
-  text-align: center;
-  padding: 10px;
-  font-size: 13px;
-`;
-const Styledtd = styled.td`
-  border: 1px solid #dddddd;
-  text-align: center;
-  padding: 8px;
-  font-size: 12px;
-`;
