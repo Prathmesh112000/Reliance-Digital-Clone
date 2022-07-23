@@ -12,6 +12,7 @@ import Login from "./components/Authentication/Login"
 function App() {
   return (
     <>
+     <Navbar />
       <Routes>
         <Route path="/" element={<HomeScreen />} />        
         <Route path="/checkout" element={<Checkout />} />     
@@ -20,7 +21,7 @@ function App() {
 
      </Routes>
  
-      {/* <Navbar /> */}
+     
       {/* <Product/> */}
       {/* <h1>Hello</h1> */}
       {/* <IndividualProduct/> */}

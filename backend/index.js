@@ -14,11 +14,17 @@ const { createClient } = require('redis')
 
 const app=express()
 
-const port=8080
+const port=8080 || process.env.port 
 const dburl="mongodb+srv://prathmeshnerle:pgglLAZLiT6V9Sx4@cluster0.hneyh.mongodb.net/?retryWrites=true&w=majority"
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
-app.use(cors())
+app.use(cors({origin:[]}))
+
+
+
+
+
+
 const connectionparams={
     useNewUrlParser:true,
     useUnifiedTopology:true
