@@ -12,7 +12,7 @@ import Login from "./components/Authentication/Login";
 function App() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<HomeScreen />} />
         <Route path="/product" element={<Product />} />
