@@ -1,8 +1,9 @@
 import {legacy_createStore as createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
+import carouselProductsReducer from "../redux/reducers/carouselsReducer";
 
 const rootReducer = combineReducers({
-
+  carouselProductsReducer
 });
 
 const composeEnhancers =

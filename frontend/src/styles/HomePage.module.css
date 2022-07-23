@@ -7,3 +7,35 @@
 .smallText:hover{
     color: red;
 }
+
+.imgContainer{
+    width: 280px;
+    height: 350px;
+    padding: 0px 10px;
+    text-decoration: none;
+}
+
+.imgContainer>p{
+    color:gray;
+    margin : 0px;
+}
+.imgContainer>p>span{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+.img{
+    width: 180px;
+    margin: auto;
+}
+
+.imgContainer>span{
+    border: 2px solid green;
+    color: green;
+    font-weight: 500;
+    padding:0px 6px;
+    border-radius:25px;
+    font-size:10px;
+    background-color:#EFFCF5;
+}
