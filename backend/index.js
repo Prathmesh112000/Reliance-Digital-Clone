@@ -54,7 +54,7 @@ mongoose.connect(dburl,connectionparams).then(()=>{
         
 //     })
 
-app.get("/products",async(req,res)=>{
+app.post("/products",async(req,res)=>{
     const {category}=req.body
     const data=await productModel.find({category:category})
    res.json({
