@@ -2,7 +2,7 @@ import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import styled from "styled-components";
-// import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const CategoryDiv = styled.div`
   // display: flex;
@@ -69,7 +69,7 @@ const Styleddown = styled.div`
 export const ProdCategory = ({ item }) => {
   // const navigate = useNavigate();
   return (
-    <div>
+    <Link to={`/product/${item._id}`}>
       <CategoryDiv>
         <StyledImg src={item.img} alt={item.name}></StyledImg>
         <StyledH2 className="product_name">{item.name}</StyledH2>
@@ -131,6 +131,6 @@ export const ProdCategory = ({ item }) => {
           </div>
         </div>
       </CategoryDiv>
-    </div>
+    </Link>
   );
 };

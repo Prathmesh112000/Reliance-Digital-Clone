@@ -1,12 +1,32 @@
-import React from "react";
+import axios from "axios";
+import React,{useEffect} from "react";
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import '../styles/IndividualProduct.css'
+import { useNavigate } from "react-router-dom";
+
 // import { useDispatch } from "react-redux";
 // import { addItem } from "../redux/action";
 
 const IndividualProduct = () => {
   const [compare,setCompare] = useState("")
   const [PIN,setPIN] =useState("");
+  const [product,setProduct]=useState({})
+  const {id}=useParams()
+  const navigate=useNavigate()
+
+useEffect(() => {
+ axios.post("https://quiet-citadel-13240.herokuapp.com/indprod",{id}).then(res=>{
+  console.log(res.data)
+  setProduct(res.data)
+ })
+}, [])
+
+
+
+
+
+  // const params=useP
 //   const dispatch = useDispatch()
 
 
@@ -31,7 +51,7 @@ const IndividualProduct = () => {
            <span>&nbsp; &gt; &nbsp;</span>
           </span>
           <span id="RIL_BreadCrumb_3">
-            {/* {product.name} */}
+            {product.name}
           </span>
         </div>
       </div>
@@ -41,8 +61,8 @@ const IndividualProduct = () => {
         <div>
           <div>
             <img
-              src={"https://www.reliancedigital.in/medias/Acer-A314-35-Laptop-492849921-i-1-450Wx450H?context=bWFzdGVyfGltYWdlc3wxMzYyNjB8aW1hZ2UvanBlZ3xpbWFnZXMvaGIwL2gzNC85ODE5MzE3MjA3MDcwLmpwZ3wxZDU2ZTFlMDdjOGU0NTMyZTcwZTRiMjA3MzAxYzYxNTVlMTkyODZmNzA3NzAxZDRhNDQ3MDViMmY3YTc2NWJk"}
-              alt="logo" width={450} height={450}
+              src={product.img}
+              alt="logo" width={450} style={{height:"400px"}}
             />
           </div>
         </div>
@@ -54,7 +74,7 @@ const IndividualProduct = () => {
           </div>
           {/* name of product */}
           <h1 className="pdp__title mb__20">
-          Acer A314-35 Aspire 3 Laptop (Intel Celeron N4500/4GB/256GB SSD/Intel UHD Graphics/Windows 11/MSO/HD), 35.56 cm (14 inch)
+          {product.name}
           </h1>
           {/* compare products */}
           <div className="pdp__compare">
@@ -254,21 +274,21 @@ const IndividualProduct = () => {
                     Deal Price:{" "}
                     <span className="pdp__offerPrice">
                       <span>₹</span>
-                      {/* <span>{product.price}</span> */}
+                      <span>12000</span>
                     </span>
                   </li>
                   <li className="pdp__priceSection__priceListText">
                     Offer Price:{" "}
                     <span className="pdp__mrpPrice">
-                      <span>₹</span>
-                      {/* <span>{product.price}</span> */}
+                      <span>₹ </span>
+                      <span>8000</span>
                     </span>
                   </li>
                   <li className="pdp__priceSection__priceListText">
                     MRP:{" "}
                     <span className="pdp__mrpPrice">
                       <span>₹</span>
-                      {/* <span>{product.mrp}</span> */}
+                      <span>15000</span>
                     </span>{" "}
                     <span className="pdp__taxText">(Inclusive of all taxes)</span>
                   </li>
@@ -333,6 +353,9 @@ const IndividualProduct = () => {
                   type="button"
                   id="buy_now_main_btn"
                   className="ripple pdp__addToCartSection__buyNowBtn btn__default pointer"
+                  onClick={()=>{
+                    navigate("/checkout")
+                  }}
                 >
                   <span>BUY NOW</span>
                 </button>

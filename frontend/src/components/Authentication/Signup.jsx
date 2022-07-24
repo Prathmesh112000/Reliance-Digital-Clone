@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import "./Signup.css";
 import axios from "axios";
 import Message from "../Message.js";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
   const [formdata, setformdata] = useState({});
+  const navigate=useNavigate()
   const onNameChange = (e) => {
     const inputname = e.target.name;
     if (inputname == "name") {
@@ -48,15 +50,25 @@ function Signup() {
   };
 
   const handleSubmit = (e) => {
+
     e.preventDefault();
+    navigate("/login")
     console.log(formdata.password);
     console.log(formdata.confirmpass);
     if (formdata.password == formdata.confirmpass) {
-      axios.post("http://localhost:8080/signup", formdata).then((e) => {
-        alert(e.data.message);
+      axios.post("https://quiet-citadel-13240.herokuapp.com/signup", formdata).then((e) => {
+        
+    //   alert(e.data.message);
+  <Message variant={"success"}>
+    {e.data.message}
+  </Message>
+      
       });
     } else {
-      alert("please check your password");
+        <Message variant={"success"}>
+        {e.data.message}
+      </Message>
+    //   alert("please check your password");
     }
   };
 

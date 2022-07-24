@@ -369,9 +369,9 @@ export const Product = () => {
           {/* <div
             // style={{ display: "flex" }}
           > */}
-          <Stack spacing={2} sx={{ display: "flex", border: "1px solid" }}>
+          {/* <Stack spacing={2} sx={{ display: "flex", border: "1px solid" }}>
             <Pagination count={50} />;
-          </Stack>
+          </Stack> */}
           {/* </div> */}
           <div
             style={{
