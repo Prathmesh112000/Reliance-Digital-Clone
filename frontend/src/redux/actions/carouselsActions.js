@@ -10,7 +10,7 @@ export const CAROUSEL_WASHING_MACHINE = "CAROUSEL_WASHING_MACHINE";
 // Action creators
 export const carouselLaptop = () => async (dispatch,getState) => {
 try {
-    const { data } = await axios.post("http://localhost:8080/products", { category: "laptop"})
+    const { data } = await axios.post("https://quiet-citadel-13240.herokuapp.com/products", { category: "laptop"})
     console.log("eeee",data.data);
     dispatch({type : CAROUSEL_LAPTOPS , payload : data.data})
 } catch (error) {
