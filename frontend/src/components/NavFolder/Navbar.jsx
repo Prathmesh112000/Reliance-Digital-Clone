@@ -1,8 +1,11 @@
 import React from "react";
 import "./Navbar.css"
+import { useNavigate } from "react-router-dom";
 import { div } from "react-router-dom";
+
 const Navbar = () => {
   // jfjsfdhjhbjbjhbknknkjwnfwejn
+  const navigate=useNavigate()
   return (
     <div>
       <div className="navbar">
@@ -33,7 +36,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <div className="drop-down">
+      {/* <div className="drop-down">
         <nav className="nav-bar">
           <ul>
             <li>
@@ -365,7 +368,7 @@ const Navbar = () => {
             </li>
           </ul>
         </nav>
-      </div>
+      </div> */}
     </div>
   );
 };
