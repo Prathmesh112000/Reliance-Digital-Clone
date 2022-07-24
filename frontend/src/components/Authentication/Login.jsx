@@ -2,9 +2,12 @@ import React , {useState} from "react"
 import "./Signup.css"
 import axios from "axios"
 import Message from "../Message.js"
+import {Link,useNavigate} from "react-router-dom"
+
 
 function Login(){
     const [formdata,setformdata]=useState({})
+    const navigate=useNavigate()
     const onNameChange=(e)=>{
       
         const inputname=e.target.name
@@ -30,17 +33,18 @@ function Login(){
 
     const handleSubmit=(e)=>{
         e.preventDefault()
-        console.log(formdata.password)
-        console.log(formdata.email)
-        axios.post("http://localhost:8080/login",formdata).then(res=>{
+       
+        axios.post("https://quiet-citadel-13240.herokuapp.com/login",formdata).then(res=>{
             console.log(res)
             if(res.data.message){
-                alert(res.data.message)
+                // alert(res.data.message)
             }
             else{
-                console.log(res.data.data)
+                // alert(res.data.data)
             }
         })
+
+        navigate("/")
        
     }
 
@@ -61,7 +65,7 @@ function Login(){
             <input type="password" placeholder="Password*" name="password" className="inpelem" onChange={onNameChange}/> <br/>
             {/* <input type="submit">Proceed</input> */}
             <button style={{"width":"480px","marginTop":"30px","height":"30px","marginLeft":"42px"}}>Proceed</button>
-
+            <Link to="/signup"  className=" btn mt-2  text-decoration-none text-center" >Create an account</Link>
         </form>
     </div>
 

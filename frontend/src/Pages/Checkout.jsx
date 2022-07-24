@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import "../styles/Checkout.css";
+import { useNavigate } from "react-router-dom";
 // import { loadData, saveData } from "../Utils/LocalStorage";
 
 const Checkout = () => {
@@ -15,6 +16,7 @@ const Checkout = () => {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [mobile, setMobile] = useState("");
+  const navigate=useNavigate()
   const addressObj = {
     pin,
     first,
@@ -36,6 +38,7 @@ const Checkout = () => {
   };
   const handlePayment = ()=>{
     alert("Payment Successful Your order has been Placed")
+    navigate("/success")
   } 
   return (
     <div className="JtReX">

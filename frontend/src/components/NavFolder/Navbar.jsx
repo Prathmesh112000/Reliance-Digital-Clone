@@ -1,14 +1,15 @@
 import React from "react";
 import "./Navbar.css"
 import { useNavigate } from "react-router-dom";
-import { div } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 const Navbar = () => {
   // jfjsfdhjhbjbjhbknknkjwnfwejn
   const navigate=useNavigate()
   return (
     <div>
-      <div className="navbar">
+      <div className="navbar border">
         <div className="logo-div">
           <div to='/'>
           <img
@@ -32,11 +33,11 @@ const Navbar = () => {
           <div className="location">
           <i class="fa-solid fa-location-dot"></i> Deliver to Mumbai 000000  |  
           <i class="fa-solid fa-cart-shopping"></i>Cart
-          <i class="fa-solid fa-user"></i>Login
+        <Link to="/login" className="text-white text-decoration-none"> <i class="fa-solid fa-user"></i>Login</Link>
           </div>
         </div>
       </div>
-      {/* <div className="drop-down">
+      <div className="drop-down border">
         <nav className="nav-bar">
           <ul>
             <li>
@@ -44,7 +45,7 @@ const Navbar = () => {
               <div id="img" className="mega-menu">
                 <div className="inner-mega-menu">
                   <div className="left-mega-position">
-                    <h3>Smartphones</h3>
+                    <h3><Link to="/product">Smartphones</Link></h3>
                     <p><div className="linknavbar" to='/moto'>Moto E32s</div></p>
                   </div>
                   <div className="left-mega-position">
@@ -368,7 +369,7 @@ const Navbar = () => {
             </li>
           </ul>
         </nav>
-      </div> */}
+      </div>
     </div>
   );
 };
